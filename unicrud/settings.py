@@ -24,7 +24,7 @@ PROJECT_ROOT =  os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = ')$2%-8^9!*ww&)jvx_(o#l&9jxhge8t%&-x95_+ssl(_sf00*n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Application definition
 
@@ -133,8 +133,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDER_PROTO', 'https')
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-try:
-    from unicrud.local_settings import *
 
-except ImportError:
-    pass
+# try:
+#     from unicrud.local_settings import *
+#
+# except ImportError:
+#     pass
