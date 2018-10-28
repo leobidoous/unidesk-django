@@ -9,6 +9,9 @@
 	    <!-- Bootstrap CSS -->
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	    
+	    <!-- favicom -->
+	    <link rel="icon" type="image/png" href="{% static 'images/favicon.ico'%}" />
+
 	    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 	    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
 
@@ -25,16 +28,21 @@
 		  	<div class="collapse navbar-collapse" id="nav">
 		    	<ul class="navbar-nav mr-auto">
 			      	<li class="nav-item active">
-			        	<a class="nav-link" href="{% url 'insert_view' %}">Insert <span class="sr-only">(current)</span></a>
+			        	<a class="nav-link" href="{% url 'insert_view' %}">Inserir <span class="sr-only">(current)</span></a>
+			      	</li>
+			      	<li class="nav-item active dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="nav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
+				        <div class="dropdown-menu" aria-labelledby="nav">
+				        	{% for universidade in Universidades %}
+			        			<a class="dropdown-item" href="{{ universidade.get_absolut_url }}">{{ universidade }}</a>
+			        		{% endfor %}
+				        </div>
 			      	</li>
 			      	<li class="nav-item active">
-			        	<a class="nav-link" href="{% url 'list_view' %}">List <span class="sr-only">(current)</span></a>
+			        	<a class="nav-link" href="{% url 'import_view' %}">Importar <span class="sr-only">(current)</span></a>
 			      	</li>
 			      	<li class="nav-item active">
-			        	<a class="nav-link" href="{% url 'import_view' %}">Import <span class="sr-only">(current)</span></a>
-			      	</li>
-			      	<li class="nav-item active">
-			        	<a class="nav-link" href="{% url 'report_view' %}">Report <span class="sr-only">(current)</span></a>
+			        	<a class="nav-link" href="{% url 'report_view' %}">Relatório <span class="sr-only">(current)</span></a>
 			      	</li>
 		    	</ul>
 		  	</div>
@@ -52,14 +60,13 @@
         <footer>
         	<div class="container">
         		<div class="row">
-        			<div class="col-md-4">
-        				
+        			<div class="col-md-6" align="center">
+        				<span>UniDESK © All Rights Reserved</span>
         			</div>
-        			<div class="col-md-4">
-        				
-        			</div>
-        			<div class="col-md-4">
-        				
+        			<div class="col-md-6" align="center">
+        				<span>
+        					<a href="">Termos e Condições de Uso</a>
+        				</span>
         			</div>
         			<!-- fim da row -->
         		</div>

@@ -24,7 +24,7 @@ PROJECT_ROOT =  os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = ')$2%-8^9!*ww&)jvx_(o#l&9jxhge8t%&-x95_+ssl(_sf00*n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'core',
+    'catalog',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # apps
+                'catalog.processors.Universidades',
             ],
         },
     },
@@ -128,3 +132,9 @@ ALLOWED_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDER_PROTO', 'https')
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+try:
+    from unicrud.local_settings import *
+
+except ImportError:
+    pass
