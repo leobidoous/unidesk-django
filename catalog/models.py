@@ -64,6 +64,7 @@ class AlunoModel(models.Model):
     id_universidade = models.ForeignKey(UniversidadeModel, on_delete=models.CASCADE)
     id_departamento = models.ForeignKey(DepartamentoModel, on_delete=models.CASCADE)
     id_curso = models.ForeignKey(CursoModel, on_delete=models.CASCADE)
+    id_disciplinas = models.ManyToManyField(DisciplinaModel)
     create_at = models.DateTimeField('Criado em', auto_now_add=True)
     update_at = models.DateTimeField('Atualizado em', auto_now=True)
 

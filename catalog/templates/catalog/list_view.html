@@ -20,6 +20,7 @@
                         <th scope="col">Curso</th>
                         <th scope="col">Criação</th>
                         <th scope="col">Última Atualização</th>
+                        <th scope="col">Disciplinas</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,11 @@
                         <td>{{ aluno.id_curso }}</td>
                         <td>{{ aluno.create_at }}</td>
                         <td>{{ aluno.update_at }}</td>
+                        <td>
+                            {% for disciplina in aluno.id_disciplinas.all %}
+                                {{ disciplina }}
+                            {% endfor %}
+                        </td>
                     </tr>
                     {% endfor %}
 
