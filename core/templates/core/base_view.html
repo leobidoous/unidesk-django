@@ -30,13 +30,8 @@
 			      	<li class="nav-item active">
 			        	<a class="nav-link" href="{% url 'insert_view' %}">Inserir <span class="sr-only">(current)</span></a>
 			      	</li>
-			      	<li class="nav-item active dropdown">
-				        <a class="nav-link dropdown-toggle" href="#" id="nav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
-				        <div class="dropdown-menu" aria-labelledby="nav">
-				        	{% for universidade in Universidades %}
-			        			<a class="dropdown-item" href="{{ universidade.get_absolut_url }}">{{ universidade }}</a>
-			        		{% endfor %}
-				        </div>
+			      	<li class="nav-item active">
+			        	<a class="nav-link" href="{% url 'list_view' %}">Listar <span class="sr-only">(current)</span></a>
 			      	</li>
 			      	<li class="nav-item active">
 			        	<a class="nav-link" href="{% url 'import_view' %}">Importar <span class="sr-only">(current)</span></a>

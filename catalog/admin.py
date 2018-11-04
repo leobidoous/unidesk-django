@@ -27,7 +27,7 @@ class DisciplinaConfig(admin.ModelAdmin):
 
 
 class AlunoConfig(admin.ModelAdmin):
-    list_display = ['nome_aluno', 'id_universidade', 'id_departamento', 'id_curso', 'create_at', 'update_at']
+    list_display = ['nome_aluno', 'create_at', 'update_at']
     search_fields = ['nome_aluno'],
     list_filter = ['create_at', 'update_at']
 

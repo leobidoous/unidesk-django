@@ -1,15 +1,20 @@
 from django.shortcuts import render
 from catalog.models import *
+from catalog.controller import *
+from core.forms import *
 
 # Create your views here.
 def insert_view(request):
-    return render(request, 'catalog/insert_view.html')
-
-def list_view(request, universidade):
     content = {}
-    universidade = UniversidadeModel.objects.get(nome_universidade = universidade)
-    content['Universidade'] = universidade
-    content['Alunos'] = AlunoModel.objects.filter(id_universidade = universidade)
+    content['form'] = CadastrarAlunoForm()
+    return render(request, 'catalog/insert_view.html', content)
+
+def list_view(request):
+
+    Controle().salvar_aluno()
+
+    content = {}
+    content['Alunos'] = AlunoModel.objects.all()
     return render(request, 'catalog/list_view.html', content)
 
 def import_view(request):

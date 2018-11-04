@@ -18,7 +18,7 @@ from catalog.views import *
 
 urlpatterns = [
     path('insert/', insert_view, name='insert_view'),
-    path('list/<str:universidade>', list_view, name='list_view'),
+    path('list/', list_view, name='list_view'),
     path('import/', import_view, name='import_view'),
     path('report/', report_view, name='report_view'),
     path('delete/', delete_view, name='delete_view'),

@@ -1,4 +1,5 @@
 {% extends "core/base_view.html" %}
+{% load widget_tweaks %}
 {% block content %}
     <div class="container">
         <!-- body -->
@@ -10,12 +11,45 @@
             <!-- fim da row -->
         </div>
         <div class="row">
-            <div class="col-6">
-                <a href="{% url 'home' %}">
-                    <button class="btn btn-info" type="button">Voltar</button>
-                </a>
+            <div class="col-md-12">
+                <form id="form_insert" method="POST" action="#">
+                    {% csrf_token %}
+                    <div class="container">
+                        <fieldset>
+                            {% for field in form %}
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label>{{ field.label }}</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        {% render_field field class='form-control' %}
+                                        <!-- {% for error in field.errors %}
+                                        <span class="help-block">{{ error }}</span>
+                                        {% endfor %} -->
+                                    </div>
+                                    <!-- fim da row -->
+                                </div>
+                            {% endfor %}
+                            <br>
+                            <div class="row">
+                                <div class="col-6" align="right">
+                                    <a href="{% url 'home' %}">
+                                        <button class="btn btn-info" type="button">Voltar</button>
+                                    </a>
+                                </div>
+                                <div class="col-6" align="left">
+                                    <a href="#">
+                                        <button class="btn btn-success" type="submit">Cadastrar</button>
+                                    </a>
+                                </div>
+                                <!-- fim da row -->
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
             </div>
             <!-- fim da row -->
         </div>
+        
     </div>
 {% endblock %}

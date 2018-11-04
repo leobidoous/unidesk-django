@@ -5,21 +5,19 @@
         <div class="row" align="center">
             <div class="col-md-12">
                 <h1>RELAÇÕES DE ALUNOS DA UNIVERSIDADE</h1>
-                <h2>{{ Universidade }}</h2>
             </div>
             <!-- fim da row -->
         </div>
-        <div class="row table_view" align="center">
-            <table id="table" class="table table-striped table-dark">
+        <div class="row" align="center">
+            <table id="table" class="table table-striped table-dark table_view">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Universidade</th>
-                        <th scope="col">Departamento</th>
-                        <th scope="col">Curso</th>
-                        <th scope="col">Criação</th>
-                        <th scope="col">Última Atualização</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Matrícula</th>
+                        <th scope="col">Nascimento</th>
+                        <th scope="col">Sexo</th>
                         <th scope="col">Disciplinas</th>
                     </tr>
                 </thead>
@@ -28,15 +26,14 @@
                     <tr>
                         <th scope="row">{{ aluno.id }}</th>
                         <td><a class="link_table badge badge-light"" href="">{{ aluno.nome_aluno }}</a></td>
-                        <td>{{ aluno.id_universidade }}</td>
-                        <td>{{ aluno.id_curso.id_departamento }}</td>
-                        <td>{{ aluno.id_curso }}</td>
-                        <td>{{ aluno.create_at }}</td>
-                        <td>{{ aluno.update_at }}</td>
+                        <td>{{ aluno.cpf }}</td>
+                        <td>{{ aluno.matricula }}</td>
+                        <td>{{ aluno.dt_nascimento }}</td>
+                        <td>{{ aluno.sexo }}</td>
                         <td>
-                            {% for disciplina in aluno.id_disciplinas.all %}
-                                {{ disciplina }}
-                            {% endfor %}
+                        {% for disciplina in aluno.id_disciplinas.all %}
+                            {{ disciplina }}
+                        {% endfor %}
                         </td>
                     </tr>
                     {% endfor %}

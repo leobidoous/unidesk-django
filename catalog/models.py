@@ -60,10 +60,14 @@ class DisciplinaModel(models.Model):
         return self.nome_disciplina
 
 class AlunoModel(models.Model):
-    nome_aluno= models.CharField('Nome do Aluno', max_length=25)
-    id_universidade = models.ForeignKey(UniversidadeModel, on_delete=models.CASCADE)
-    id_departamento = models.ForeignKey(DepartamentoModel, on_delete=models.CASCADE)
-    id_curso = models.ForeignKey(CursoModel, on_delete=models.CASCADE)
+    nome_aluno = models.CharField('Nome do Aluno', max_length=25)
+    sexo = models.CharField('Sexo do Aluno', max_length=9)
+    cpf = models.CharField('CPF do Aluno', max_length=11, unique=True)
+    dt_nascimento = models.CharField('Data de Nascimento', max_length=10)
+    matricula = models.CharField('Matrícula do Aluno', max_length=4, unique=True)
+    # id_universidade = models.ForeignKey(UniversidadeModel, on_delete=models.CASCADE)
+    # id_departamento = models.ForeignKey(DepartamentoModel, on_delete=models.CASCADE)
+    # id_curso = models.ForeignKey(CursoModel, on_delete=models.CASCADE)
     id_disciplinas = models.ManyToManyField(DisciplinaModel)
     create_at = models.DateTimeField('Criado em', auto_now_add=True)
     update_at = models.DateTimeField('Atualizado em', auto_now=True)
